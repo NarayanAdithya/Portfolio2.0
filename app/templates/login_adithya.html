@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%block body%}
+
+<div class="container mx-auto mt-32" >
+    <div class="bg-purple-500 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+        <h1 class="text-2xl text-center" >Only Adithya Can Login, If you are not Adithya Please Shoosh Away</h1>
+        <div class="mb-4">
+          <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+            Key 1
+          </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="key1" name="key1" type="password" placeholder="*************">
+        </div>
+        <div class="mb-6">
+          <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+            Key2
+          </label>
+          <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="key2" name="key2" type="password" placeholder="******************">
+          
+        </div>
+        <div class="mb-6">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+              Key3
+            </label>
+            <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="key3" type="password" name="key3" placeholder="******************">
+            
+          </div>
+        <div class="flex items-center justify-between">
+          <button class="bg-purple-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded" type="button">
+            Sign In
+          </button>
+        </div>
+    </div>
+    
+</div>
+
+{%endblock%}

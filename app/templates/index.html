@@ -68,6 +68,7 @@
                 var textarea=document.getElementById('user_message');
                 var element = "<div  class=\" justify-self-end user_message m-2 text-right bg-purple-500 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"text-sm\">"+message+"</p></div>";
                 textarea.innerHTML+=element;
+                textarea.scrollTop = textarea.scrollHeight;
             }
         </script>
 {% endblock %}
