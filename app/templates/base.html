@@ -16,12 +16,13 @@
 <body class="bg-zinc-900 font-['Poppins'] pb-12" >
     {% if current_user.is_authenticated %}
     <div class="text-white bg-green-500 text-center p-5">
-        SuperAdmin Mode
+       <a href="{{url_for('auth.logout')}}">SuperAdmin Mode</a>
     </div>
     {%endif%}
     <header class="py-6">
         <div class="container flex justify-between items-center  mx-auto w-full md:px-14 lg:px-24 px-8">
-            <div class=" md:text-4xl sm:text-3xl font-semibold text-white"> <span class="text-purple-700 hover:text-white" >adithya</span>.<span class="hover:text-purple-700" >narayan</span></div>
+            <a href="{{url_for('home')}}"><div class=" md:text-4xl sm:text-3xl font-semibold text-white"> <span class="text-purple-700 hover:text-white" >adithya</span>.<span class="hover:text-purple-700" >narayan</span></div></a>
+            
             <div class="hidden text-white md:flex space-x-12 items-center" >
                 <a href="#home" class="text-slate-400">Home</a>
                 <a href="#experience">Experience</a>
