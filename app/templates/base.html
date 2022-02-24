@@ -9,9 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    {% block styles %}
+    {% endblock %}
 </head>
 
 <body class="bg-zinc-900 font-['Poppins'] pb-12" >
+    {% if current_user.is_authenticated %}
+    <div class="text-white bg-green-500 text-center p-5">
+        SuperAdmin Mode
+    </div>
+    {%endif%}
     <header class="py-6">
         <div class="container flex justify-between items-center  mx-auto w-full md:px-14 lg:px-24 px-8">
             <div class=" md:text-4xl sm:text-3xl font-semibold text-white"> <span class="text-purple-700 hover:text-white" >adithya</span>.<span class="hover:text-purple-700" >narayan</span></div>

@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+<style>
+    #user_message::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+    }
+
+    #user_message::-webkit-scrollbar-track {
+    background: rgb(88 28 135);        /* color of the tracking area */
+    }
+
+    #user_message::-webkit-scrollbar-thumb {
+    background-color: rgb(192 132 252);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(88 28 135);  /* creates padding around scroll thumb */
+    }
+</style>
+{% endblock %}
+
 {% block body %}
     <div class="container mt-16 flex justify-between items-center mx-auto w-full md:px-14 lg:px-24 px-8">
         <div class="flex flex-wrap md:flex-nowrap">
@@ -38,7 +56,7 @@
     
         <div class="container rounded-md mt-24 mb-24 p-10 mx-auto border-purple-400 border-4 bg-purple-300 bg-opacity-25   w-3/4  " >
             <h3 class="text-center text-2xl text-white" >Adi Bot</h3>
-            <div id="user_message" class=" grid grid-cols-1 bg-purple-700 p-5 bg-opacity-75 overflow-auto max-h-96  ">
+            <div id="user_message" class=" rounded-md grid grid-cols-1 bg-purple-700 p-5 bg-opacity-75 overflow-auto max-h-96  ">
                 <div  class=" justify-self-start bot_message m-2 bg-emerald-600 w-1/2 rounded-md p-2" >
                     <h6 class="text-md" ><u>Adi Bot</u></h6>
                     <p class="text-sm">Hey, I am AdiBot also known as <b>Adi Bhatt</b> . I have been developed to address your needs. I will try to imitate Adithya to the best of my abilites. You can ask me the following:
@@ -48,6 +66,7 @@
                             <li>Experiences</li>
                             <li>Lifestyle</li>
                         </ul>
+                        <p class=" text-red-900 text-sm " >*All Messages are Recorded</p>
                     </p>
                 </div>
                 <div  class=" justify-self-end  user_message m-2 text-right bg-purple-500 w-1/2 rounded-md p-2" >
@@ -69,6 +88,7 @@
                 var element = "<div  class=\" justify-self-end user_message m-2 text-right bg-purple-500 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"text-sm\">"+message+"</p></div>";
                 textarea.innerHTML+=element;
                 textarea.scrollTop = textarea.scrollHeight;
+                var message=document.getElementById('message').value='';
             }
         </script>
 {% endblock %}

@@ -1,3 +1,4 @@
+from enum import unique
 from app import db, login
 from flask_login import UserMixin
 from datetime import datetime
@@ -9,14 +10,16 @@ def load_user(id):
 
 class User(UserMixin,db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    username=db.Column(db.String(64),index=True,unique=True)
-    email=db.Column(db.String(120),index=True,unique=True)
-    user_role=db.Column(db.String(20))
-    def __repr__(self):
-        return '<Role:{} Name:{} Id:{}>'.format(self.user_role,self.username,self.id)
-    def set_password(self,password):
-        self.password_hash=generate_password_hash(password)
-    def check_password(self,password):
-        return check_password_hash(self.password_hash,password)
+    role=db.Column(db.String(20),default='Admin')
+    password_hash_key1=db.Column(db.String(120))
+    password_hash_key2=db.Column(db.String(120))
+    password_hash_key3=db.Column(db.String(120))
+    def set_password(self,key1,key2,key3):
+        self.password_hash_key1=generate_password_hash(key1)
+        self.password_hash_key2=generate_password_hash(key2)
+        self.password_hash_key3=generate_password_hash(key3)
+    def check_password(self,k1,k2,k3):
+        return check_password_hash(self.password_hash_key1,k1) and check_password_hash(self.password_hash_key2,k2) and check_password_hash(self.password_hash_key3,k3)
+
 
 
