@@ -33,7 +33,7 @@ login.login_view='auth.loginUser'
 #Blueprine Registration
 from app.auth import auth
 app.register_blueprint(auth,url_prefix='/auth')
-
+print(app.config['UPLOAD_FOLDER'])
 from app import routes, models
 
 
