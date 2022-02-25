@@ -1,9 +1,9 @@
 from app import app, db
 from app.auth.models import User
-
+from app.models import TechStack
 @app.shell_context_processor
 def make_shell_context():
-    return {'db':db,'user':User}
+    return {'db':db,'user':User,'tech':TechStack}
 
 
 if __name__=='__main__':

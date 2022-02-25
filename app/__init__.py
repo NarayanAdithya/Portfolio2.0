@@ -30,10 +30,12 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view='auth.loginUser'
 
+#Flask Admin Configurations
+admin = Admin(app, name='Portfolio', template_mode='bootstrap3')
+
 #Blueprine Registration
 from app.auth import auth
 app.register_blueprint(auth,url_prefix='/auth')
-print(app.config['UPLOAD_FOLDER'])
-from app import routes, models
 
+from app import routes, models, administrator
 

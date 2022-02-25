@@ -5,6 +5,9 @@
         <label for="img" class="bg-emerald-300 p-3 rounded-md" >Select image:</label>
         <input type="file" class="bg-emerald-600 p-2 rounded-md" id="img" name="img" accept="image/*">
         <button type="submit" class="p-3 bg-purple-500 rounded" >Submit</button>
+      {% if status %}
+      <h1 class="text-lg text-emerald-700" >Image Uploaded Successfully</h1>
+      {% endif %}
       </form>
 </div>
 {% endblock %}
