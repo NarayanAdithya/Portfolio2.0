@@ -9,11 +9,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html { 
+        scroll-behavior: smooth; 
+    }
+    </style>
     {% block styles %}
     {% endblock %}
 </head>
 
-<body class="bg-zinc-900 font-['Poppins'] pb-12" >
+<body class="bg-zinc-900 font-['Poppins'] pb-12 flex flex-col h-screen" >
     {% if current_user.is_authenticated %}
     <div class="text-white bg-green-500 text-center p-5">
        <a href="{{url_for('auth.logout')}}">SuperAdmin Mode</a>
@@ -24,10 +30,10 @@
             <a href="{{url_for('home')}}"><div class=" md:text-4xl sm:text-3xl font-semibold text-white"> <span class="text-purple-700 hover:text-white" >adithya</span>.<span class="hover:text-purple-700" >narayan</span></div></a>
             
             <div class="hidden text-white md:flex space-x-12 items-center" >
-                <a href="#home" class="text-slate-400">Home</a>
-                <a href="#experience">Experience</a>
-                <a href="projects">Projects</a>
-                <a href="#"> <button class="rounded-full px-6 py-2 font-bold hover:bg-purple-400 bg-purple-900" >Resume</button></a>
+                <a href="#home" class="">Home</a>
+                <a href="#TechStack">TechStack</a>
+                <a href="#bot">Bot</a>
+                <a href="{{url_for('static',filename='files/adithya.pdf')}}" download> <button class="rounded-full px-6 py-2 font-bold hover:bg-purple-400 bg-purple-900" >Resume</button></a>
             </div>
             <div class="md:hidden hover:bg-fuchsia-600 p-2 rounded-full">
                 <svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 17.5H0.25V14.6667H13V17.5ZM25.75 10.4167H0.25V7.58333H25.75V10.4167ZM25.75 3.33333H13V0.5H25.75V3.33333Z" fill="white"/></svg>
@@ -38,5 +44,14 @@
     {% block body %}
 
     {% endblock %}
+    <h1 class="text-center text-purple-300">Projects, Experiences, Bot Coming Soon....</h1>
+    <footer class="bg-purple-500 flex flex-col md:flex-row text-center text-emerald-300 bottom-0 mt-5 p-10 justify-between " >
+        <a href="https://github.com/NarayanAdithya"><h1 class="font-bold sm:text-lg text-md" >GitHub</h1></a>
+        <a href="https://www.linkedin.com/in/adithya-narayan-3747081a3/"><h1 class="font-bold sm:text-lg text-md" >LinkedIn</h1></a>
+        <a href="mailto:adithyanarayan1234@gmail.com"><h1 class="font-bold sm:text-lg text-md" >Mail</h1></a>
+        <!-- <h1 class="font-bold sm:text-lg text-md" >LeetCode</h1>
+        <h1 class="font-bold sm:text-lg text-md" >CodeChef</h1> -->
+    </footer>
+      
 </body>
 </html>
