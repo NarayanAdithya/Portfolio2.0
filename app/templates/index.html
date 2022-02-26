@@ -19,7 +19,10 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-16 flex justify-between items-center mx-auto w-full md:px-14 lg:px-24 px-8">
+    <div id="warning" class="visible sm:hidden container mt-48 mb-48 text-3xl font-bold text-red-500 text-center mx-auto w-full md:px-14 lg:px-24 px-8 hover:underline hover:text-purple-600 hover:decoration-wavy hover:decoration-purple-600">
+        <h3>Open the Website On Your Laptop For All Features</h3>
+    </div>
+    <div id="home" class="container mt-16 flex justify-between items-center mx-auto w-full md:px-14 lg:px-24 px-8">
         <div class="flex flex-wrap md:flex-nowrap">
             <div class="flex flex-wrap lg:ml-20 justify-center md:justify-start max-w-xl mt-0 md:my-36">
                 <h1 class="font-bold text-5xl md:text-6xl lg:text-7xl text-center text-white md:text-left"> <span class="text-purple-800" >D</span><span class="hover:text-purple-600" >eterminant</span>  <br> <span class="text-purple-800" >S</span><span class="hover:text-purple-600" >tressed</span> <br> <span class="text-purple-800" >M</span><span class="hover:text-purple-600" >eticulous</span><br><span class="text-purple-800" >W</span><span class="hover:text-purple-600" >illing</span></h1>
@@ -29,12 +32,10 @@
         </div>
     </div>
     
-    <div  class="  container mt-48 mb-10 text-3xl font-bold text-white text-center mx-auto w-full md:px-14 lg:px-24 px-8 hover:underline hover:text-purple-600 hover:decoration-wavy hover:decoration-purple-600">
+    <div id="TechStack" class="  container mt-48 mb-10 text-3xl font-bold text-white text-center mx-auto w-full md:px-14 lg:px-24 px-8 hover:underline hover:text-purple-600 hover:decoration-wavy hover:decoration-purple-600">
         <h3>Tech Stack</h3>
     </div>
     <div class="container border-4 border-fuchsia-300 rounded-md  mx-auto w-full md:px-14 lg:px-24 px-8" >
-
-        <h4 class="container text-center mt-5 text-white font-bold underline text-2xl" >DSA</h4>
         <div class="mx-4 my-5 gap-8 h-auto  p-2 columns-1 sm:columns-2 lg:columns-3 space-y-8  ">
             {% if techstack %}
             {% for i in techstack %}
@@ -52,8 +53,8 @@
            
         </div>
     
-        <div class="container rounded-md mt-24 mb-24 p-10 mx-auto border-purple-400 border-4 bg-purple-300 bg-opacity-25  w-full md:w-3/4  " >
-            <h3 class="text-center text-2xl text-white" >Adi Bot</h3>
+        <div id="bot" class="container rounded-md mt-24 mb-24 p-10 mx-auto border-purple-400 border-4 bg-purple-300 bg-opacity-25  w-full md:w-3/4  " >
+            <h3 class="text-center text-2xl text-white" >Adi Bot - <span class="text-red-500" >Coming Soon</span></h3>
             <div id="user_message" class=" rounded-md grid grid-cols-1 bg-purple-700 p-2 sm:p-5 bg-opacity-75 overflow-auto max-h-96  ">
                 <div  class=" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2" >
                     <h6 class="text-md" ><u>Adi Bot</u></h6>
@@ -73,12 +74,17 @@
                 </div>
             </div>
             <div class="text-center mt-3" >
-                <input type="text" class="rounded-full m-2 p-2 text-center" id="message" placeholder="Enter Message" size="20" name="message" id=""> <button onclick="add_user_message()" class="rounded-full px-4 py-2 border-2 border-emerald-300 bg-emerald-600" >Send</button>
+                <input type="text" class="rounded-full m-2 p-2 text-center" id="message" placeholder="Enter Message" size="20" name="message" id=""> <button onclick="add_user_message()" class="rounded-full px-4 py-2 border-2 border-emerald-300 bg-emerald-600" disabled>Send</button>
             </div>
             
         </div>
+        
         <script>
-            
+            function remove_warning()
+            {
+                document.getElementById('warning').innerHTML='';
+            }
+            setTimeout(remove_warning,5000)
             function add_user_message()
             {
                 var message=document.getElementById('message').value;

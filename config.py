@@ -1,4 +1,7 @@
+from distutils.debug import DEBUG
 import os
+
+from sqlalchemy import true
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config():
@@ -9,7 +12,9 @@ class Config():
 class Development(Config):
     SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
+    DEBUG = True
 
 class Production(Config):
     DATABASE_URI = os.environ.get('DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
+    DEBUG=False
