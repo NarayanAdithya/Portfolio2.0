@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="container mt-32 text-center">
+<div class="container mt-32 mb-96 text-center">
     <form action="" method="POST" enctype="multipart/form-data" >
         <label for="img" class="bg-emerald-300 p-3 rounded-md" >Select image:</label>
         <input type="file" class="bg-emerald-600 p-2 rounded-md" id="img" name="img" accept="image/*">
+        <br>
+        <div class=" p-10" >
+          <input type="radio" name="folder" id="" value="tech_stack" checked > <h1 class="inline text-emerald-300">TechStack</h1>
+        </div>
+        <br>
+        <div class="p-10">
+          <input type="radio" name="folder" id="" value="projects"  > <h1 class="inline text-emerald-300" >Projects</h1>
+        <br>
+        </div>
+        
         <button type="submit" class="p-3 bg-purple-500 rounded" >Submit</button>
       {% if status %}
       <h1 class="text-lg text-emerald-700" >Image Uploaded Successfully</h1>
