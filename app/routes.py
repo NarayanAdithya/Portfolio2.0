@@ -29,6 +29,10 @@ def image_upload():
         return redirect(url_for('image_upload',status='Success'))
     return render_template('image_upload.html')
 
-@app.route('/sitemap')
+@app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory(app.static_folder,'sitemap.xml')
+
+@app.route('/robots.txt')
+def sitemap():
+    return send_from_directory(app.static_folder,'robots.txt')

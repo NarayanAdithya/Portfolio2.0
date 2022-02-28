@@ -17,6 +17,31 @@
   <lastmod>2022-02-28T09:31:29+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://adithya-narayan.herokuapp.com/auth/adithyalogin</loc>
+  <lastmod>2022-02-28T09:31:29+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://adithya-narayan.herokuapp.com/auth/invalid</loc>
+  <lastmod>2022-02-28T09:31:29+00:00</lastmod>
+  <priority>0.1</priority>
+</url>
+<url>
+  <loc>https://adithya-narayan.herokuapp.com/image_upload</loc>
+  <lastmod>2022-02-28T09:31:29+00:00</lastmod>
+  <priority>0.1</priority>
+</url>
+<url>
+  <loc>https://adithya-narayan.herokuapp.com/sitemap.xml</loc>
+  <lastmod>2022-02-28T09:31:29+00:00</lastmod>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://adithya-narayan.herokuapp.com/robots.txt</loc>
+  <lastmod>2022-02-28T09:31:29+00:00</lastmod>
+  <priority>0.5</priority>
+</url>
 
 
 </urlset>
