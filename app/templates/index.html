@@ -22,10 +22,10 @@
     <div id="warning" class="visible sm:hidden container mt-48 mb-48 text-3xl font-bold text-red-500 text-center mx-auto w-full md:px-14 lg:px-24 px-8 hover:underline hover:text-purple-600 hover:decoration-wavy hover:decoration-purple-600">
         <h3>Open the Website On Your Laptop For All Features</h3>
     </div>
-    <div id="home" class="container mt-16 flex justify-between items-center mx-auto w-full md:px-14 lg:px-24 px-8">
+    <div id="home" class="container  mt-16 flex justify-between items-center mx-auto w-full md:px-14 lg:px-24 px-8">
         <div class="flex flex-wrap md:flex-nowrap">
-            <div class="flex flex-wrap lg:ml-20 justify-center md:justify-start max-w-xl mt-0 md:my-36">
-                <h1 class="font-bold text-5xl md:text-6xl lg:text-7xl text-center text-white md:text-left"> <span class="text-purple-800" >D</span><span class="hover:text-purple-600" >eterminant</span>  <br> <span class="text-purple-800" >S</span><span class="hover:text-purple-600" >tressed</span> <br> <span class="text-purple-800" >M</span><span class="hover:text-purple-600" >eticulous</span><br><span class="text-purple-800" >W</span><span class="hover:text-purple-600" >illing</span></h1>
+            <div class="flex  flex-wrap lg:ml-20 justify-center md:justify-start max-w-xl mt-0 md:my-36">
+                <h1 class="font-bold text-5xl md:text-6xl lg:text-7xl text-center text-white md:text-left"> <span class="text-purple-800" >D</span><span class="hover:text-purple-600 animate-pulse" >eterminant</span>  <br> <span class="text-purple-800" >S</span><span class="hover:text-purple-600 animate-pulse" >tressed</span> <br> <span class="text-purple-800" >M</span><span class="hover:text-purple-600 animate-pulse" >eticulous</span><br><span class="text-purple-800" >W</span><span class="hover:text-purple-600 animate-pulse" >illing</span></h1>
                 
             </div>
             <img src="{{url_for('static', filename='img/adithya.jpeg')}}" alt="Man" class="aspect-auto rounded-full invisible md:visible border-2 hover:border-8 hover:border-purple-500  border-purple-800 w-1/2 mt-12 md:absolute-mt-6 align-middle ml-4 md:mt-5 right-0-z-1">
@@ -40,7 +40,7 @@
             <div class="mx-4 my-5 gap-8 h-auto  p-2 columns-1 sm:columns-2 lg:columns-3 space-y-8  ">
                 {% if techstack %}
                 {% for i in techstack %}
-                <div class="flex flex-col flex-wrap break-inside-avoid-column">
+                <div class="flex  flex-col flex-wrap break-inside-avoid-column">
                     <div class="  border-t-2  hover:border-4 hover:border-purple-300 border-purple-700 bg-purple-300 bg-opacity-25 rounded-lg p-6 ">
                         <img src="{{ url_for('static',filename='img/tech_stack/'+i.image_name) }}" class="w-10 mx-auto" alt="">
                         <h1 class="text-center text-2xl text-purple-100  font-bold">{{i.name}}</h1>

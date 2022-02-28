@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, send_from_directory
 from flask_login import login_required
 from werkzeug.utils import secure_filename
 import os
@@ -28,3 +28,7 @@ def image_upload():
             f.save(os.path.join(app.config['PROJECT_UPLOAD_FOLDER'], secure_filename(f.filename)))
         return redirect(url_for('image_upload',status='Success'))
     return render_template('image_upload.html')
+
+@app.route('/sitemap')
+def sitemap():
+    return send_from_directory(app.static_folder,'sitemap.xml')
