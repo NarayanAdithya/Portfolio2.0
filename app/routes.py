@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_required
 from werkzeug.utils import secure_filename
 import os
-from app.models import TechStack
+from app.models import TechStack, Project
 #Route Home / or /home
 @app.route('/home')
 @app.route('/')
