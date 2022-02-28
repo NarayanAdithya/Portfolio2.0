@@ -54,86 +54,35 @@
                
             </div>
     </div>
-    
+    {% if projects %}
     <div id="project" class="  container mt-20 mb-10 text-3xl font-bold text-white text-center mx-auto w-full md:px-14 lg:px-24 px-8 hover:underline hover:text-purple-600 hover:decoration-wavy hover:decoration-purple-600"" >
         <h3>Projects</h3>
     </div>
     <div class="container sm:mx-auto p-2 w-full grid md:grid-cols-2 lg:grid-cols-4 place-content-evenly grid-cols-1   gap-4" >
+       {% for p in projects %}
         <div class=" rounded bg-purple-300 bg-opacity-75  hover:shadow-lg hover:shadow-purple-500/50 ">
-            <img class="w-full rounded" src="{{url_for('static',filename='img/celis.png')}}" alt="Sunset in the mountains">
+            <img class="w-full rounded" src="{{url_for('static',filename='img/projects/'+p.image_name)}}" alt="Sunset in the mountains">
             <div class="px-6 py-4">
-              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">The Coldest Sunset</div>
+              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">{{p.name}}</div>
               <p class="text-purple-800 text-base hover:text-purple-900 hover:font-semibold">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                
+               {{p.description}}
               </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:bg-purple-400 text-purple-900 mr-2 mb-2">#photography</span>
+                <a href="{{p.github}}"><span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:border-purple-900 hover:border-2 hover:bg-purple-400 text-purple-900 mr-2 mb-2">#github</span></a>
+              {% if p_tags %}
+                {% for i,x in p_tags[loop.index-1].items() %}
+              <a href="{{x}}"><span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:border-purple-900 hover:border-2 hover:bg-purple-400 text-purple-900 mr-2 mb-2">#{{i}}</span></a>
+                {% endfor %}
+                {% endif %}
+                {% if p.status==0 %}
+                <span title="WorkInProgress" class="inline-block bg-rose-500 rounded-full px-3 py-1 text-sm font-semibold  text-rose-900 mr-2 mb-2">WIP</span>
+                {%endif%}
             </div>
           </div>
-          <div class="  rounded bg-purple-300 bg-opacity-75  hover:shadow-lg hover:shadow-purple-500/50 ">
-            <img class="w-full rounded" src="{{url_for('static',filename='img/celis.png')}}" alt="Sunset in the mountains">
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">The Coldest Sunset</div>
-              <p class="text-purple-800 text-base hover:text-purple-900 hover:font-semibold">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:bg-purple-400 text-purple-900 mr-2 mb-2">#photography</span>
-            </div>
-          </div>
-          <div class="  rounded bg-purple-300 bg-opacity-75  hover:shadow-lg hover:shadow-purple-500/50 ">
-            <img class="w-full rounded" src="{{url_for('static',filename='img/celis.png')}}" alt="Sunset in the mountains">
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">The Coldest Sunset</div>
-              <p class="text-purple-800 text-base hover:text-purple-900 hover:font-semibold">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:bg-purple-400 text-purple-900 mr-2 mb-2">#photography</span>
-            </div>
-          </div>
-          <div class=" rounded bg-purple-300 bg-opacity-75  hover:shadow-lg hover:shadow-purple-500/50 ">
-            <img class="w-full rounded" src="{{url_for('static',filename='img/celis.png')}}" alt="Sunset in the mountains">
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">The Coldest Sunset</div>
-              <p class="text-purple-800 text-base hover:text-purple-900 hover:font-semibold">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:bg-purple-400 text-purple-900 mr-2 mb-2">#photography</span>
-            </div>
-          </div>
-          <div class=" rounded bg-purple-300 bg-opacity-75  hover:shadow-lg hover:shadow-purple-500/50 ">
-            <img class="w-full rounded" src="{{url_for('static',filename='img/celis.png')}}" alt="Sunset in the mountains">
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">The Coldest Sunset</div>
-              <p class="text-purple-800 text-base hover:text-purple-900 hover:font-semibold">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:bg-purple-400 text-purple-900 mr-2 mb-2">#photography</span>
-            </div>
-          </div>
-          <div class=" rounded bg-purple-300 bg-opacity-75  hover:shadow-lg hover:shadow-purple-500/50 ">
-            <img class="w-full rounded" src="{{url_for('static',filename='img/celis.png')}}" alt="Sunset in the mountains">
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl text-purple-900 text-center mb-2 underline">The Coldest Sunset</div>
-              <p class="text-purple-800 text-base hover:text-purple-900 hover:font-semibold">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-purple-500 rounded-full px-3 py-1 text-sm font-semibold hover:bg-purple-400 text-purple-900 mr-2 mb-2">#photography</span>
-            </div>
-          </div>
-          
+        {% endfor %}
     </div>
+    {%endif%}
         <div id="bot" class="container rounded-md mt-24 mb-24 p-10 mx-auto border-purple-400 border-4 bg-purple-300 bg-opacity-25  w-full md:w-3/4  " >
             <h3 class="text-center text-2xl text-white" >Adi Bot - <span class="text-red-500" >Coming Soon</span></h3>
             <div id="user_message" class=" rounded-md grid grid-cols-1 bg-purple-700 p-2 sm:p-5 bg-opacity-75 overflow-auto max-h-96  ">
