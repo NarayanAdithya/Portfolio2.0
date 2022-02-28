@@ -9,6 +9,8 @@ class Config():
     SECRET_KEY = os.environ.get('SECRET_KEY','sjskfdojg&*&(9')
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
     FLASK_ADMIN_SWATCH='cerulean'
+    PROJECT_UPLOAD_FOLDER = os.environ.get('PROJECT_UPLOAD_FOLDER')
+    
 class Development(Config):
     SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
