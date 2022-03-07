@@ -5,4 +5,4 @@ Disallow: /static/files/adithya.pdf
 User-agent: *
 Disallow:
 
-sitemap: https://adithya-narayan.herokuapp.com/sitemap
+sitemap: https://adithya-narayan.herokuapp.com/sitemap.xml
