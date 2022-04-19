@@ -11,6 +11,7 @@ class Config():
     FLASK_ADMIN_SWATCH='cerulean'
     PROJECT_UPLOAD_FOLDER = os.environ.get('PROJECT_UPLOAD_FOLDER')
     ADI_BOT_URL = os.environ.get('ADI_BOT_ENDPOINT')
+    CONNECTION_URL = 'mongodb+srv://'+os.environ.get('ADI_BOT_USERNAME')+':'+os.environ.get('ADI_BOT_PASSWORD')+'@cluster0.wkuda.mongodb.net/Adi_Bot?retryWrites=true&w=majority'
     
 class Development(Config):
     SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, 'app.db')

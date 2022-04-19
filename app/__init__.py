@@ -30,8 +30,9 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 #DataBase Mongo
-db_mongo = MongoClient('localhost',27017)
-db_m = db_mongo.flask_db
+db_mongo = MongoClient(app.config.get('CONNECTION_URL'))
+db_mongo=db_mongo['Adi_Bot']
+db_m = db_mongo['Chats']
 #Login Configurations
 login = LoginManager(app)
 login.login_view='auth.loginUser'
