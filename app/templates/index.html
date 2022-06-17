@@ -4,7 +4,7 @@
 <script type="text/javascript" charset="utf-8">
     var socket;
     $(document).ready(function(){
-        console.log('https://' + document.domain + ':' + location.port + '/bot/chat');
+        console.log('http://' + document.domain + ':' + location.port + '/bot/chat');
         socket = io.connect('https://' + document.domain + ':' + location.port + '/bot/chat');
         socket.on('received_message',function(msg){
                 console.log(msg.data[0].text);
