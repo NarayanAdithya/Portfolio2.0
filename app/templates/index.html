@@ -6,7 +6,8 @@
     $(document).ready(function(){
         socket = io.connect('http://' + document.domain + ':' + location.port + '/bot/chat');
         socket.on('received_message',function(msg){
-                var elem="<div  class=\" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"md:text-sm  text-xs\">"+msg['text']+"</p></div>";
+                console.log(msg.data[0].text);
+                var elem="<div  class=\" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"md:text-sm  text-xs\">"+msg.data[0].text+"</p></div>";
                 var message=document.getElementById('message').value;
                 var textarea=document.getElementById('user_message');
                 textarea.innerHTML+=elem;
@@ -97,7 +98,7 @@
     </div>
     {%endif%}
         <div id="bot" class="container rounded-md mt-24 mb-24 p-10 mx-auto border-purple-400 border-4 bg-purple-300 bg-opacity-25  w-full md:w-3/4  " >
-            <h3 class="text-center text-2xl text-white" >Adi Bot - <span class="text-red-500" >Coming Soon</span></h3>
+            <h3 class="text-center text-2xl text-white" >Adi Bot - <span class="text-red-500" >Beta Up</span></h3>
             <div id="user_message" class=" rounded-md grid grid-cols-1 bg-purple-700 p-2 sm:p-5 bg-opacity-75 overflow-auto max-h-96  ">
                 <div  class=" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2" >
                     <h6 class="text-md" ><u>Adi Bot</u></h6>

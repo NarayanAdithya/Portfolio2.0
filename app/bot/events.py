@@ -22,10 +22,10 @@ def postmessage(message):
         current['message'].append(mess)
         update = {"$set":{"message":current['message']}}
         db_m.update_one(db_m.find(query)[0],update)
-    print("About to Execute Response")
     try:
         response=requests.post(app.config['ADI_BOT_URL'],data=json.dumps({'sender':hash(request.remote_addr),'message':mess}))
+        response=response.json()
     except requests.exceptions.ConnectionError:
-        response={'text':'Connection to Bot Failed, Sorry!'}
-    print("Emitted")
-    emit('received_message',response)
+        response=[{'text':'Connection to Bot Failed, Sorry!'}]
+    print(response)
+    emit('received_message',{'data':response})
