@@ -1,1 +1,1 @@
-web: gunicorn --worker-class eventlet --workers=3 adithya:app
+web: gunicorn -k gevent --workers=3 adithya:app
