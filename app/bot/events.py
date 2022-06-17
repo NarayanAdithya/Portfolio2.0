@@ -23,6 +23,4 @@ def postmessage(message):
         db_m.update_one(db_m.find(query)[0],update)
     print("About to Execute Response")
     response=requests.post(app.config['ADI_BOT_URL'],data=json.dumps({'sender':hash(request.remote_addr),'message':mess}))
-    print(response.json())
-    print('Exec')
-
+    response_text = response['text']
