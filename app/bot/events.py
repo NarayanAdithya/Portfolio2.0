@@ -5,6 +5,7 @@ from .. import socketio
 from app import app,db_m
 import requests
 import os
+
 @socketio.on('postmessage',namespace='/bot/chat')
 def postmessage(message):
     mess=message['msg']
@@ -22,5 +23,9 @@ def postmessage(message):
         update = {"$set":{"message":current['message']}}
         db_m.update_one(db_m.find(query)[0],update)
     print("About to Execute Response")
-    response=requests.post(app.config['ADI_BOT_URL'],data=json.dumps({'sender':hash(request.remote_addr),'message':mess}))
-    response_text = response['text']
+    try:
+        response=requests.post(app.config['ADI_BOT_URL'],data=json.dumps({'sender':hash(request.remote_addr),'message':mess}))
+    except requests.exceptions.ConnectionError:
+        response={'text':'Connection to Bot Failed, Sorry!'}
+    print("Emitted")
+    emit('received_message',response)
