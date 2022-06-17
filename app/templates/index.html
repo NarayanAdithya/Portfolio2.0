@@ -4,7 +4,7 @@
 <script type="text/javascript" charset="utf-8">
     var socket;
     $(document).ready(function(){
-        socket = io.connect('http://' + document.domain + ':' + location.port + '/bot/chat');
+        socket = io.connect('https://' + document.domain + ':' + location.port + '/bot/chat');
         socket.on('received_message',function(msg){
                 console.log(msg.data[0].text);
                 var elem="<div  class=\" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"md:text-sm  text-xs\">"+msg.data[0].text+"</p></div>";
