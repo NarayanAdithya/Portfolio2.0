@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
 {% block styles %}
+<script type="text/javascript" charset="utf-8">
+    var socket;
+    $(document).ready(function(){
+        socket = io.connect('http://' + document.domain + ':' + location.port + '/bot/chat');
+        socket.on('received_message',function(msg){
+                console.log(msg.data[0].text);
+                var elem="<div  class=\" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"md:text-sm  text-xs\">"+msg.data[0].text+"</p></div>";
+                var message=document.getElementById('message').value;
+                var textarea=document.getElementById('user_message');
+                textarea.innerHTML+=elem;
+                textarea.scrollTop = textarea.scrollHeight;
+            });
+    });
+</script>
 <style>
     #user_message::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
@@ -84,7 +98,7 @@
     </div>
     {%endif%}
         <div id="bot" class="container rounded-md mt-24 mb-24 p-10 mx-auto border-purple-400 border-4 bg-purple-300 bg-opacity-25  w-full md:w-3/4  " >
-            <h3 class="text-center text-2xl text-white" >Adi Bot - <span class="text-red-500" >Coming Soon</span></h3>
+            <h3 class="text-center text-2xl text-white" >Adi Bot - <span class="text-red-500" >Beta Up</span></h3>
             <div id="user_message" class=" rounded-md grid grid-cols-1 bg-purple-700 p-2 sm:p-5 bg-opacity-75 overflow-auto max-h-96  ">
                 <div  class=" justify-self-start bot_message sm:m-2 bg-emerald-600 w-1/2 rounded-md p-2" >
                     <h6 class="text-md" ><u>Adi Bot</u></h6>
@@ -98,31 +112,29 @@
                         <p class=" text-red-900 text-sm " >*All Messages are Recorded</p>
                     </p>
                 </div>
-                <div  class=" justify-self-end  user_message m-2 text-right bg-purple-500 w-1/2 rounded-md p-2" >
-                    <h6 class="text-md" ><u>You</u></h6>
-                    <p class="md:text-sm text-xs ">Hey There!</p>
-                </div>
             </div>
             <div class="text-center mt-3" >
-                <input type="text" class="rounded-full m-2 p-2 text-center" id="message" placeholder="Enter Message" size="20" name="message" id=""> <button onclick="add_user_message()" class="rounded-full px-4 py-2 border-2 border-emerald-300 bg-emerald-600" disabled>Send</button>
+                <input type="text" class="rounded-full m-2 p-2 text-center" id="message" placeholder="Enter Message" size="20" name="message" id=""> <button onclick="add_user_message()" class="rounded-full px-4 py-2 border-2 border-emerald-300 bg-emerald-600" >Send</button>
             </div>
             
         </div>
         
         <script>
+            
             function remove_warning()
             {
                 document.getElementById('warning').className+=' hidden';
-            }
-            setTimeout(remove_warning,5000)
+            };
+            setTimeout(remove_warning,5000);
             function add_user_message()
             {
                 var message=document.getElementById('message').value;
                 var textarea=document.getElementById('user_message');
-                var element = "<div  class=\" justify-self-end user_message m-2 text-right bg-purple-500 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>Adi Bot</u></h6><p class=\"text-sm\">"+message+"</p></div>";
+                var element = "<div  class=\" justify-self-end user_message m-2 text-right bg-purple-500 w-1/2 rounded-md p-2\" ><h6 class=\"text-md\" ><u>You</u></h6><p class=\"text-sm\">"+message+"</p></div>";
                 textarea.innerHTML+=element;
                 textarea.scrollTop = textarea.scrollHeight;
-                var message=document.getElementById('message').value='';
-            }
+                socket.emit('postmessage', {'msg':message});
+                document.getElementById('message').value='';
+            };
         </script>
 {% endblock %}
