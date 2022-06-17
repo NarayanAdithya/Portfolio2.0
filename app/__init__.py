@@ -42,7 +42,7 @@ admin = Admin(app, name='Portfolio', template_mode='bootstrap3')
 
 
 #SocketIO Init
-socketio.init_app(app)
+socketio.init_app(app, cors_allowed_origins="*")
 
 #Blueprine Registration
 from app.auth import auth
