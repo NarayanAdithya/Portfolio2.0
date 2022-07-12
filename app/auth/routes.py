@@ -24,7 +24,7 @@ def loginUser():
         return redirect(url_for('home'))
     if request.method=='POST':
         k1, k2, k3 = request.form['k1'], request.form['k2'], request.form['k3']
-        u=User.query.get(2)
+        u=User.query.get(3)
         if u.check_password(k1,k2,k3):
             login_user(u)
             return redirect(url_for('home'))
